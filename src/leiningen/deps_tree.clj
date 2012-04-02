@@ -24,7 +24,8 @@
 (defn- print-tree
   ([tree level increment]
      (doseq [[n c] tree]
-       (println (str (apply str (repeat level \space))) n)
+       (print (str (apply str (repeat level \space))))
+       (prn n)
        (when c
          (print-tree c (+ level increment) increment))))
   ([tree increment]
