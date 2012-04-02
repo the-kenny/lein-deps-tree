@@ -22,7 +22,7 @@ to control the indentation level.
 
 Example output of a project with `[compojure "1.0.1"]` and `[clojure "1.3.0"]` as dependency:
 
-    $ lein deps-tree <integer>
+    $ lein deps-tree
     [compojure 1.0.1]
              [clout 1.0.1]
              [org.clojure/core.incubator 0.1.0]
