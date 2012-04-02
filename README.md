@@ -34,6 +34,10 @@ Example output of a project with `[compojure "1.0.1"]` and `[clojure "1.3.0"]` a
                       [javax.servlet/servlet-api 2.5]
     [org.clojure/clojure 1.3.0]
 
+## Known Bugs
+
+- SNAPSHOT releases aren't included in the dependency tree
+
 ## License
 
 Copyright © 2012 Moritz Ulrich
