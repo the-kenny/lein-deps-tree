@@ -1,25 +1,25 @@
 # lein-deps-tree
 
-A Leiningen plugin to do many wonderful things.
+A Leiningen plugin to print a print a nicely formatted tree of a project's dependencies.
 
 ## Usage
 
-FIXME: Use this for user-level plugins:
+Put `[lein-deps-tree "0.1.0]` into the `:plugins` vector of your `:user` profile, or if you are on Leiningen 1.x do `lein plugin install lein-deps-tree 0.1.0`.
 
-Put `[lein-deps-tree "0.1.0-SNAPSHOT"]` into the `:plugins` vector of your
-`:user` profile, or if you are on Leiningen 1.x do `lein plugin install
-lein-deps-tree 0.1.0-SNAPSHOT`.
-
-FIXME: Use this for project-level plugins:
-
-Put `[lein-deps-tree "0.1.0-SNAPSHOT"]` into the `:plugins` vector of your project.clj.
-
-FIXME: and add an example usage that actually makes sense:
+Run
 
     $ lein deps-tree
 
+to print the tree of dependencies.
+
+Run
+
+    $ lein deps-tree <integer>
+
+to control the indentation level.
+
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012 Moritz Ulrich
 
 Distributed under the Eclipse Public License, the same as Clojure.
