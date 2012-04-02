@@ -1,4 +1,4 @@
-(defproject lein-deps-tree "0.1.1-SNAPSHOT"
+(defproject lein-deps-tree "0.1.1"
   :description "Prints all dependencies formatted as a tree"
   :url "https://github.com/the-kenny/lein-deps-tree"
   :license {:name "Eclipse Public License"
