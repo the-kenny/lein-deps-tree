@@ -1,16 +1,24 @@
 (ns leiningen.deps-tree
-  (:require [leiningen.core.classpath :as classpath]
-            [cemerick.pomegranate.aether :as aether]))
+  (:require [cemerick.pomegranate.aether :as aether]))
+
+(try )
 
 (defn- make-dependency-tree [project]
-  (aether/dependency-hierarchy
-   (:dependencies project)
-   (aether/resolve-dependencies
-    :local-repo (:local-repo project)
-    :offline? (:offline project)
-    :repositories (classpath/add-auth (:repositories project))
-    :coordinates (:dependencies project)
-    :transfer-listener :stdout)))
+  (let [[add-auth two?] (or (try (require 'leiningen.core.classpath)
+                                 [(resolve 'leiningen.core.classpath/add-auth)
+                                  true]
+                                 (catch java.io.FileNotFoundException _))
+                            (try (require 'leiningen.classpath)
+                                 [(resolve 'leiningen.classpath/add-auth)]
+                                 (catch java.io.FileNotFoundException _)))]
+    (aether/dependency-hierarchy
+     (:dependencies project)
+     (aether/resolve-dependencies
+      :local-repo (:local-repo project)
+      :offline? (:offline project)
+      :repositories (add-auth (:repositories project))
+      :coordinates (:dependencies project)
+      :transfer-listener :stdout))))
 
 
 ;;; TODO: Get rid of this recursion
