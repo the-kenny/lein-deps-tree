@@ -28,6 +28,5 @@
 (defn deps-tree
   "Prints a nicely formatted tree of all dependencies"
   [project & args]
-  (if-let [indent (Integer/parseInt (first args))]
-    (print-tree (make-dependency-tree project) indent)
-    (print-tree (make-dependency-tree project) 4)))
+  (if-let [indent (Integer/parseInt (or (first args) "4"))]
+    (print-tree (make-dependency-tree project) indent)))
