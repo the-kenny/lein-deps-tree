@@ -2,14 +2,13 @@
   (:require [cemerick.pomegranate.aether :as aether]))
 
 (defn- make-dependency-tree [project]
-  (let [[add-auth two?] (or (try (require 'leiningen.core.classpath)
-                                 [(resolve 'leiningen.core.classpath/add-auth)
-                                  true]
-                                 (catch java.io.FileNotFoundException _))
-                            ;; 1.x doesn't have `add-auth'. We just
-                            ;; use identity here, this means no
-                            ;; auth-support in 1.x.
-                            [identity false])]
+  (let [add-auth (or (try (require 'leiningen.core.classpath)
+                          (resolve 'leiningen.core.classpath/add-auth)
+                          (catch java.lang.RuntimeException _))
+                     ;; 1.x doesn't have `add-auth'. We just
+                     ;; use identity here, this means no
+                     ;; auth-support in 1.x.
+                     identity)]
     (aether/dependency-hierarchy
      (:dependencies project)
      (aether/resolve-dependencies
