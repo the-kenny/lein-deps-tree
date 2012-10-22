@@ -4,7 +4,7 @@
 (defn- make-dependency-tree [project]
   (let [add-auth (or (try (require 'leiningen.core.classpath)
                           (resolve 'leiningen.core.classpath/add-auth)
-                          (catch java.lang.RuntimeException _))
+                          (catch java.lang.Exception _))
                      ;; 1.x doesn't have `add-auth'. We just
                      ;; use identity here, this means no
                      ;; auth-support in 1.x.
