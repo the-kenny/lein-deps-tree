@@ -4,7 +4,7 @@ A Leiningen plugin to print a print a nicely formatted tree of a project's depen
 
 ## Usage
 
-Put `[lein-deps-tree "0.1.0"]` into the `:plugins` vector of your `:user` profile, or if you are on Leiningen 1.x do `lein plugin install lein-deps-tree 0.1.0`.
+Put `[lein-deps-tree "0.1.2"]` into the `:plugins` vector of your `:user` profile, or if you are on Leiningen 1.x do `lein plugin install lein-deps-tree 0.1.2`.
 
 Run
 
@@ -37,9 +37,12 @@ Example output of a project with `[compojure "1.0.1"]` and `[clojure "1.3.0"]` a
 ## Known Bugs
 
 - SNAPSHOT releases aren't included in the dependency tree
+- There MIGHT be an issue with ```lein deps``` failing with some pomegrenate exception. See [1].
 
 ## License
 
 Copyright © 2012 Moritz Ulrich
 
 Distributed under the Eclipse Public License, the same as Clojure.
+
+[1]: https://github.com/cemerick/pomegranate/issues/2
